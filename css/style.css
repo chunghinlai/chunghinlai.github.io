@@ -1,0 +1,660 @@
+@font-face {
+  font-family: 'JeanLuc-Bold';
+  src: url('../fonts/JeanLuc-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Page 1: Home Page*/ 
+/* Base styles for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif; /* Default font for body */
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;  /* Ensure no internal scrolling */
+}
+
+/* Overlay styles */ 
+.overlay {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 2%; /* Move closer to the left with some gap */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  z-index: 10; /* Place the text above the canvas */
+  pointer-events: none; /* Allow interaction with the canvas below */
+  text-align: left; /* Align text to the left */
+}
+
+/* Enable interaction for the button */
+.overlay .button {
+  pointer-events: auto; /* Allow interaction with the button */
+}
+
+/* First line (Pharmacy) */
+.line1 {
+  font-size: 50px; /* Larger font size for "Pharmacy" */
+  font-weight: 800;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.6) 0%, rgba(52, 168, 83, 0.6) 25%, rgba(0, 201, 255, 0.6) 50%, rgba(52, 168, 83, 0.6) 75%, rgba(26, 115, 232, 0.6) 100%);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate 10s linear infinite;
+  line-height: 1; /* Control spacing between lines */
+}
+
+/* Second line (Virtual Lab) */
+.line2 {
+  font-size: 30px; /* Smaller font size for "Virtual Lab" */
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.6) 0%, rgba(52, 168, 83, 0.6) 25%, rgba(0, 201, 255, 0.6) 50%, rgba(52, 168, 83, 0.6) 75%, rgba(26, 115, 232, 0.6) 100%);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate 10s linear infinite;
+  line-height: 1.2; /* Adjust vertical spacing */
+}
+
+/* Keyframes for gradient animation */
+@keyframes animate {
+  to {
+    background-position: 400%;
+  }
+}
+
+/* Button styles */
+.button {
+  position: relative;
+  height: 40px;
+  width: 120px;
+  margin-top: 20px;
+  align-items: center;
+  border-radius: 50px;
+  border: none;
+  text-align: center;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(255, 255, 255);
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 50ms ease;
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.6) 0%, rgba(52, 168, 83, 0.6) 25%, rgba(0, 201, 255, 0.6) 50%, rgba(52, 168, 83, 0.6) 75%, rgba(26, 115, 232, 0.6) 100%);
+  background-size: 400%;
+  animation: welcome 0.5s ease 0s 1 normal forwards;
+  font-family: "Montserrat", sans-serif;
+  pointer-events: auto; /* Enable interaction with the button */
+}
+
+.go-home-btn {
+  font-size: 24px;
+}
+
+/* Button hover styles */
+.button:hover {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(230, 219, 67, 0.9);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(224, 178, 78, 0.9);
+  box-shadow: 0px 0px 15px 0px rgba(55, 137, 119, 0.9);
+  animation: animate 8s ease infinite;
+  transition: box-shadow, 0.4s;
+  border: none;
+  font-size: 19px;
+  transform: scale(1.05, 1.05);
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.6) 0%, rgba(52, 168, 83, 0.6) 25%, rgba(0, 201, 255, 0.6) 50%, rgba(52, 168, 83, 0.6) 75%, rgba(26, 115, 232, 0.6) 100%);
+  background-size: 400%;
+}
+
+/* Hover effect for the button */
+.button:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}
+
+/* Keyframes for gradient animation */
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+/* Page 2: Micro Modules, etc. */
+/* Container for your main content (title, subtitles, buttons) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Keep text aligned to the left */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  width: fit-content; /* Only take as much width as needed */
+  margin: 0 auto; /* Center the block horizontally */
+  transform: translateY(-5px); /* Move up the entire block */
+}
+
+/* Main Title (Pharmacy Virtual Lab) */
+.title {
+  font-size: 50px;
+  font-family: "JeanLuc-Bold", sans-serif;
+  margin-bottom: 5px;
+  line-height: 1.1; /* Adjust this value as needed */
+}
+
+/* Subtitle (e.g., MICRO-MODULES, SIMULATIONS) */
+.subtitle1 {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 5px; /* Some space before underline */
+}
+
+/* Underline */
+.underline {
+  width: 100%; 
+  height: 2px;
+  background-color: #33333319; 
+  margin-bottom: 20px; /* Space below the line */
+}
+
+/* Lab Buttons (e.g., LAB1, LAB2, LAB3) in a single row */
+.lab-buttons {
+  display: flex;
+  gap: 15px; 
+  margin-bottom: 30px; 
+}
+
+/* General Button Style */
+.btn {
+    width: 300px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+    border: 3px solid #00000018; /* Light stroke color */
+    border-radius: 50px;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    /*text-transform: uppercase;*/
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover Effect for .btn */
+.btn:hover {
+  box-shadow: inset 0 0 0 4px #b4ef47, 
+              inset 0 0 0 8px #7CFC00, 
+              inset 0 0 0 12px #06d6a0,
+              inset 0 0 0 16px #66CDAA;
+  background: #073b4c;
+  color: #d1d1d1;
+  transition: all 0.3s ease-in-out;
+}
+
+/* If you want a separate container for "SIMULATIONS" section */
+.simulations-container {
+  display: block;
+  margin-top: 20px;
+}
+
+/* Grid layout for PART1, PART2, PART3, PART4, etc. */
+.simulations-grid {
+  display: grid;
+  grid-template-columns: auto auto auto; /* 3 columns (adjust if needed) */
+  gap: 15px; /* Space between columns & rows */
+  justify-content: start; /* Left-align the grid */
+  margin-bottom: 30px;
+}
+
+/* Each grid cell: center the button or empty space */
+.simulations-grid > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Empty placeholders for alignment (X) */
+.empty {
+  width: 170px;  /* Match .btn width */
+  height: 60px;  /* Match .btn height */
+  background: transparent;
+  border: none;
+}
+
+/* Additional keyframes (for overlay button) */
+@keyframes welcome {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Socket */
+.socket {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
+  transform: scale(9);
+  opacity: 0.03;
+}
+
+.hex-brick {
+  background: #000000;
+  width: 30px;
+  height: 17px;
+  position: absolute;
+  top: 5px;
+  animation-name: fade00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.h2 {
+  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+}
+
+.h3 {
+  transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+}
+
+.gel {
+  height: 30px;
+  width: 30px;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.center-gel {
+  margin-left: -15px;
+  margin-top: -15px;
+  animation-name: pulse00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.c1 {
+  margin-left: -47px;
+  margin-top: -15px;
+}
+
+.c2 {
+  margin-left: -31px;
+  margin-top: -43px;
+}
+
+.c3 {
+  margin-left: 1px;
+  margin-top: -43px;
+}
+
+.c4 {
+  margin-left: 17px;
+  margin-top: -15px;
+}
+
+.c5 {
+  margin-left: -31px;
+  margin-top: 13px;
+}
+
+.c6 {
+  margin-left: 1px;
+  margin-top: 13px;
+}
+
+.c7 {
+  margin-left: -63px;
+  margin-top: -43px;
+}
+
+.c8 {
+  margin-left: 33px;
+  margin-top: -43px;
+}
+
+.c9 {
+  margin-left: -15px;
+  margin-top: 41px;
+}
+
+.c10 {
+  margin-left: -63px;
+  margin-top: 13px;
+}
+
+.c11 {
+  margin-left: 33px;
+  margin-top: 13px;
+}
+
+.c12 {
+  margin-left: -15px;
+  margin-top: -71px;
+}
+
+.c13 {
+  margin-left: -47px;
+  margin-top: -71px;
+}
+
+.c14 {
+  margin-left: 17px;
+  margin-top: -71px;
+}
+
+.c15 {
+  margin-left: -47px;
+  margin-top: 41px;
+}
+
+.c16 {
+  margin-left: 17px;
+  margin-top: 41px;
+}
+
+.c17 {
+  margin-left: -79px;
+  margin-top: -15px;
+}
+
+.c18 {
+  margin-left: 49px;
+  margin-top: -15px;
+}
+
+.c19 {
+  margin-left: -63px;
+  margin-top: -99px;
+}
+
+.c20 {
+  margin-left: 33px;
+  margin-top: -99px;
+}
+
+.c21 {
+  margin-left: 1px;
+  margin-top: -99px;
+}
+
+.c22 {
+  margin-left: -31px;
+  margin-top: -99px;
+}
+
+.c23 {
+  margin-left: -63px;
+  margin-top: 69px;
+}
+
+.c24 {
+  margin-left: 33px;
+  margin-top: 69px;
+}
+
+.c25 {
+  margin-left: 1px;
+  margin-top: 69px;
+}
+
+.c26 {
+  margin-left: -31px;
+  margin-top: 69px;
+}
+
+.c27 {
+  margin-left: -79px;
+  margin-top: -15px;
+}
+
+.c28 {
+  margin-left: -95px;
+  margin-top: -43px;
+}
+
+.c29 {
+  margin-left: -95px;
+  margin-top: 13px;
+}
+
+.c30 {
+  margin-left: 49px;
+  margin-top: 41px;
+}
+
+.c31 {
+  margin-left: -79px;
+  margin-top: -71px;
+}
+
+.c32 {
+  margin-left: -111px;
+  margin-top: -15px;
+}
+
+.c33 {
+  margin-left: 65px;
+  margin-top: -43px;
+}
+
+.c34 {
+  margin-left: 65px;
+  margin-top: 13px;
+}
+
+.c35 {
+  margin-left: -79px;
+  margin-top: 41px;
+}
+
+.c36 {
+  margin-left: 49px;
+  margin-top: -71px;
+}
+
+.c37 {
+  margin-left: 81px;
+  margin-top: -15px;
+}
+
+.r1 {
+  animation-name: pulse00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: .2s;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: .2s;
+}
+
+.r2 {
+  animation-name: pulse00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: .4s;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: .4s;
+}
+
+.r3 {
+  animation-name: pulse00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: .6s;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: .6s;
+}
+
+.r1 > .hex-brick {
+  animation-name: fade00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: .2s;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: .2s;
+}
+
+.r2 > .hex-brick {
+  animation-name: fade00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: .4s;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: .4s;
+}
+
+.r3 > .hex-brick {
+  animation-name: fade00;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: .6s;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: .6s;
+}
+
+@keyframes pulse00 {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.01);
+    transform: scale(0.01);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes fade00 {
+  0% {
+    background: #252525;
+  }
+
+  50% {
+    background: #fcfcfc;
+  }
+
+  100% {
+    background: #353535;
+  }
+}
+
+.go-home-btn {
+  position: fixed;
+  left: 2%;              /* Same gap as overlay */
+  top: 5%;
+  transform: translateY(-50%);
+  width: 50px;           /* Circle width */
+  height: 50px;          /* Circle height */
+  background-color: #fff;
+  color: #000;
+  border: 1x solid #000; /* Stroke color */
+  border-radius: 50%;     /* Makes it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: lighter;
+  z-index: 100;          /* Ensure it appears above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.go-home-btn:hover {
+  background-color: #073b4c;
+  color: #fff;
+}
+
+.blocked-lab {
+  cursor: not-allowed;    /* Show a "not allowed" cursor */
+  opacity: 0.8;           /* Dim the button slightly (optional) */
+  pointer-events: none;   /* Disable click/tap, redundant if `disabled` is used */
+  color: #aaa;            /* Dim text color (optional) */
+}
+
+/* The blur overlay, matching the button's shape */
+.blocked-lab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;         /* Matches the .btn shape */
+  background: rgba(0, 0, 0, 0.4);    /* Semi-transparent overlay */
+  backdrop-filter: blur(20px);     /* Blur effect */
+  pointer-events: none;           /* No interaction on the overlay */
+}
+
+.overview-titles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: justify;
+}
+
+.overview-title {
+    font-size: 14px; /* Adjust the size as needed */
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    width: 300px;
+    /*text-transform: uppercase;*/
+    font-weight: normal;
+    padding-left: 20px;
+    padding-right: 20px;
+}
